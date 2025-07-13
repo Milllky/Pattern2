@@ -37,7 +37,7 @@ class AppTest {
         $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
         $(".button").click();
-        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! "), Condition.visible);
+        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! " + "Неверно указан логин или пароль"), Condition.visible);
     }
 
     @Test
@@ -47,7 +47,7 @@ class AppTest {
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $(".button").click();
-        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! "), Condition.visible);
+        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! " + "Пользователь заблокирован"), Condition.visible);
     }
 
     @Test
@@ -58,7 +58,7 @@ class AppTest {
         $("[data-test-id='login'] input").setValue(wrongLogin);
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $(".button").click();
-        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! "), Condition.visible);
+        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! " + "Неверно указан логин или пароль"), Condition.visible);
     }
 
     @Test
@@ -69,6 +69,6 @@ class AppTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(wrongPassword);
         $(".button").click();
-        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! "), Condition.visible);
+        $("[data-test-id='error-notification'] .notification__content").should(Condition.text("Ошибка! " + "Неверно указан логин или пароль"), Condition.visible);
     }
 }
